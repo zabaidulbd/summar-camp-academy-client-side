@@ -6,7 +6,13 @@ import ActiveLink from "../../ActiveLink/ActiveLink";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
 
     return (
         <div className="navbar bg-pink-400">
@@ -31,7 +37,7 @@ const Navbar = () => {
 
             <div className="flex-none gap-2">
                 {
-                    user?.email ?
+                    user ?
                         <>
                             <span className="text-xl font-bold text-blue-50 mx-4"><ActiveLink to={'/dashboard'}>Dashboard</ActiveLink></span>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -40,7 +46,7 @@ const Navbar = () => {
                                 </div>
                             </label>
 
-                            <button className="btn btn-error me-10"><span className="text-white">Log-Out</span></button>
+                            <button onClick={handleLogOut} className="btn btn-error me-10"><span className="text-white">Log-Out</span></button>
                         </> :
                         <Link to={'/login'}><button className="btn btn-error me-10"><span className="text-white">Login</span></button></Link>
                 }
