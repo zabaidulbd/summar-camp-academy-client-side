@@ -1,10 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 const Dashboard = () => {
 
-    const isAdmin = true;
-    const isInstructor = false;
+    // const isAdmin = true;
+
+    const [isAdmin] = useAdmin();
+
+
+
+    const [isInstructor] = useInstructor();
 
 
 
@@ -12,6 +19,21 @@ const Dashboard = () => {
         <div className="drawer drawer-mobile lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
+                {
+                    isAdmin ?
+                        <>
+                            <h1 className="font-bold text-5xl">Admin Dash board</h1>
+                        </> :
+                        isInstructor ?
+                            <>
+                                <h1 className="font-bold text-5xl">Instructor Dashboard</h1>
+                            </> :
+
+                            <>
+                                <h1 className="font-bold text-5xl">Student Dash board</h1>
+                            </>
+
+                }
                 <Outlet></Outlet>
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
