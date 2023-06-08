@@ -12,6 +12,40 @@ const ManageUsers = () => {
     })
 
 
+    const handleCreateAdmin = user => {
+
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    alert(`make ${user.name} admin successfully`)
+                }
+            })
+
+    };
+
+
+
+    const handleCreateInstructor = user => {
+
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    alert(`make ${user.name} instructor successfully`)
+                }
+            })
+
+    }
+
+
+
     return (
         <div>
             <h1>Total user : {users.length} </h1>
@@ -35,13 +69,13 @@ const ManageUsers = () => {
                                 <td>{user.email}</td>
                                 <td>
                                     {
-                                        user.role === 'admin' ? 'admin' : <button className="btn btn-active btn-ghost btn-sm">Make Admin</button>
+                                        user.role === 'admin' ? 'admin' : <button onClick={() => handleCreateAdmin(user)} className="btn btn-active btn-ghost btn-sm">Make Admin</button>
                                     }
 
                                 </td>
                                 <td>
                                     {
-                                        user.role === 'instructor' ? 'instructor' : <button className="btn btn-active btn-ghost btn-sm">Make Instructor</button>
+                                        user.role === 'instructor' ? 'instructor' : <button onClick={() => handleCreateInstructor(user)} className="btn btn-active btn-ghost btn-sm">Make Instructor</button>
                                     }
 
                                 </td>
@@ -51,8 +85,6 @@ const ManageUsers = () => {
                     </tbody>
                 </table>
             </div>
-
-
 
         </div>
     );
