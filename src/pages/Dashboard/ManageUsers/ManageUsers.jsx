@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-// import { useState } from "react";
+
 
 
 const ManageUsers = () => {
 
-    // const [disabled, setDisabled] = useState(false)
 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
