@@ -43,8 +43,6 @@ const ManageClasses = () => {
 
     return (
         <div>
-            <h1>from manage classes : {classes.length}</h1>
-
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
