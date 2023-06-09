@@ -14,7 +14,7 @@ const AllClasses = () => {
 
         if (user && user.email) {
             const { _id, image, name, instructorName, seat, price } = selectClass
-            const savedClass = { selectClassId: _id, image, name, instructorName, seat, price }
+            const savedClass = { selectClassId: _id, image, name, instructorName, seat, price, email: user?.email }
             fetch('http://localhost:5000/selectedclasses', {
                 method: 'POST',
                 headers: {
