@@ -1,10 +1,41 @@
+import { useContext } from "react";
 import useClasses from "../../hooks/useClasses";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const AllClasses = () => {
-
+    const navigate = useNavigate();
     const [classes] = useClasses();
     const approve = classes.filter(singleClass => singleClass.status === 'approve');
+    const { user } = useContext(AuthContext)
+    const location = useLocation();
+    const handleSelectClass = selectClass => {
+
+        if (user && user.email) {
+            const { _id, image, name, instructorName, seat, price } = selectClass
+            const savedClass = { selectClassId: _id, image, name, instructorName, seat, price }
+            fetch('http://localhost:5000/selectedclasses', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(savedClass)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        alert('class selected successfully');
+
+                    }
+                })
+        }
+        else {
+            alert('please login first')
+            navigate('/login', { state: { from: location } })
+
+        }
+    }
 
     return (
         <>
@@ -37,7 +68,7 @@ const AllClasses = () => {
                                 <td>{singleData.instructorName}</td>
                                 <td>{singleData.seat}</td>
                                 <td>{singleData.price}</td>
-                                <td><button className="btn btn-active btn-ghost">Select</button></td>
+                                <td><button onClick={() => handleSelectClass(singleData)} className="btn btn-active btn-ghost">Select</button></td>
                             </tr>)
                         }
                     </tbody>
