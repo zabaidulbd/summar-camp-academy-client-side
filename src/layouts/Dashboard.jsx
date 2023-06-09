@@ -1,21 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
-// import useAdmin from "../hooks/useAdmin";
-// import useInstructor from "../hooks/useInstructor";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 const Dashboard = () => {
 
-    const isAdmin = true;
-
-    // const [isAdmin] = useAdmin();
-
-
-
-    const isInstructor = false;
-
-
-
-    // const [isInstructor] = useInstructor();
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    // const isInstructor = false;
+    const [isInstructor] = useInstructor();
 
 
 
