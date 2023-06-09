@@ -42,10 +42,22 @@ const ManageClasses = () => {
 
 
     return (
-        <div>
+        <>
+            <div>
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <form method="dialog" className="modal-box">
+                        <h3 className="font-bold text-lg mb-2">Reason for approved or denied!</h3>
+                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <div className="modal-action">
+                            <button className="btn btn-neutral">Send Feed back</button>
+                            <button className="btn btn-neutral">Close</button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
+
             <div className="overflow-x-auto">
                 <table className="table">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th>Classes Image</th>
@@ -87,7 +99,7 @@ const ManageClasses = () => {
                                     }
                                 </td>
                                 <td>
-                                    <button className="btn btn-active btn-ghost btn-sm">Send Feedback</button>
+                                    <button className="btn btn-active btn-ghost btn-sm" onClick={() => window.my_modal_5.showModal()}>Send Feedback</button>
                                 </td>
 
                             </tr>)
@@ -102,7 +114,7 @@ const ManageClasses = () => {
 
 
 
-        </div>
+        </>
     );
 };
 
