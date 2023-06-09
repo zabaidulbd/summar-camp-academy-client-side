@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import Dashboard from "../layouts/Dashboard";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import Instructors from "../pages/Instructors/Instructors";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: 'manageusers',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'addclass',
+                element: <AddClass></AddClass>
             }
         ]
 
