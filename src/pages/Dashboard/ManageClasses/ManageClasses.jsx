@@ -9,6 +9,36 @@ const ManageClasses = () => {
         return res.json();
     })
 
+    const handleApprove = singleClass => {
+
+        fetch(`http://localhost:5000/classes/approve/${singleClass._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    alert(`Approve ${singleClass.name} class successfully`)
+                }
+            })
+
+    }
+
+    const handleDeny = singleClass => {
+
+        fetch(`http://localhost:5000/classes/deny/${singleClass._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    alert(`Deny ${singleClass.name} class successfully`)
+                }
+            })
+
+    }
+
 
 
     return (
@@ -27,27 +57,38 @@ const ManageClasses = () => {
                             <th>Available Seats</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            classes.map(SingleClass => <tr key={SingleClass._id}>
+                            classes.map(singleClass => <tr key={singleClass._id}>
 
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src={SingleClass.image} alt="class image" />
+                                            <img src={singleClass.image} alt="class image" />
                                         </div>
                                     </div>
                                 </td>
-                                <td>{SingleClass.name}</td>
-                                <td>{SingleClass.instructorName}</td>
-                                <td>{SingleClass.email}</td>
-                                <td>{SingleClass.seat}</td>
-                                <td>{SingleClass.price}</td>
+                                <td>{singleClass.name}</td>
+                                <td>{singleClass.instructorName}</td>
+                                <td>{singleClass.email}</td>
+                                <td>{singleClass.seat}</td>
+                                <td>{singleClass.price}</td>
                                 <td>
-                                    <button className="btn btn-active btn-ghost btn-sm">Approve</button>
-                                    <button className="btn btn-active btn-ghost btn-sm mx-2">Deny</button>
+                                    {
+                                        singleClass.status === 'approve' ? 'approve' : <button onClick={() => handleApprove(singleClass)} className="btn btn-active btn-ghost btn-sm">Approve</button>
+                                    }
+
+                                </td>
+                                <td>
+                                    {
+                                        singleClass.status === 'deny' ? 'deny' : <button onClick={() => handleDeny(singleClass)} className="btn btn-active btn-ghost btn-sm">Deny</button>
+                                    }
+                                </td>
+                                <td>
                                     <button className="btn btn-active btn-ghost btn-sm">Send Feedback</button>
                                 </td>
 
