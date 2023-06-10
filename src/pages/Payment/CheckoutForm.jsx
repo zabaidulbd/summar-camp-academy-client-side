@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ totalClasses, price }) => {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -37,7 +37,7 @@ const CheckoutForm = ({ price }) => {
         if (card == null) {
             return;
         }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -48,7 +48,6 @@ const CheckoutForm = ({ price }) => {
         }
         else {
             setCardError('');
-            console.log('payment method', paymentMethod)
         }
 
         setProcessing(true)
@@ -74,6 +73,23 @@ const CheckoutForm = ({ price }) => {
 
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
+            const payment = {
+                email: user?.email,
+                price,
+                classItems: totalClasses.map(item => item._id),
+                selectClassItems: totalClasses.map(item => item.selectClassId),
+                className: totalClasses.map(item => item.name),
+                classImage: totalClasses.map(item => item.image),
+                instructorsName: totalClasses.map(item => item.instructorName),
+                availableSeat: totalClasses.map(item => item.seat)
+            }
+            axiosSecure.post('/payments', payment)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.result.insertedId) {
+                        // display confirm
+                    }
+                })
 
         }
 
