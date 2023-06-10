@@ -1,13 +1,36 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
-const CheckoutForm = () => {
-
+const CheckoutForm = ({ price }) => {
 
     const stripe = useStripe();
     const elements = useElements();
+    const { user } = useContext(AuthContext);
+    const [axiosSecure] = useAxiosSecure()
     const [cardError, setCardError] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+
+    useEffect(() => {
+        if (price > 0) {
+            axiosSecure.post('/create-payment-intent', { price })
+                .then(res => {
+                    console.log(res.data.clientSecret)
+                    setClientSecret(res.data.clientSecret);
+                })
+        }
+    }, [price, axiosSecure])
+
+
+
+
+
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,6 +55,24 @@ const CheckoutForm = () => {
             setCardError('');
             console.log('payment method', paymentMethod)
         }
+
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || 'not known',
+                        name: user?.displayName || 'no name'
+                    },
+                },
+            },
+        );
+        if (confirmError) {
+            console.log(confirmError);
+        }
+
+        console.log('payment intent', paymentIntent)
 
 
     }
@@ -59,7 +100,7 @@ const CheckoutForm = () => {
                         },
                     }}
                 />
-                <button className="btn btn-warning btn-sm mt-4" type="submit" disabled={!stripe}>
+                <button className="btn btn-warning btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
