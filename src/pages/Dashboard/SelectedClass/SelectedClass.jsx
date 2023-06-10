@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useSelectedClass from "../../../hooks/useSelectedClass";
 
 
@@ -55,7 +56,8 @@ const SelectedClass = () => {
                                     <button onClick={() => handleDelete(single)} className="btn btn-active btn-ghost">Delete</button>
                                 </td>
                                 <td>
-                                    <button className="btn btn-active btn-ghost">Pay</button>
+                                    <Link to='pay'><button className="btn btn-active btn-ghost">Pay</button></Link>
+
                                 </td>
                             </tr>)
                         }
