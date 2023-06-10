@@ -10,11 +10,9 @@ const Payment = () => {
 
     const [totalClasses] = useSelectedClass();
 
-    const singleAmount = totalClasses.map(singleClass => singleClass.price)
+    const total = totalClasses.map(singleClass => singleClass.price)
 
-    const price = parseFloat(singleAmount.toFixed(2))
-
-
+    const price = parseFloat(total)
 
 
     return (
