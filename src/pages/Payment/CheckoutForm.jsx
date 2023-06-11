@@ -6,7 +6,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
-const CheckoutForm = ({ totalClasses, price }) => {
+const CheckoutForm = ({ singleData }) => {
+
+    const { price, image, name, instructorName, seat } = singleData;
 
     const stripe = useStripe();
     const elements = useElements();
@@ -16,6 +18,7 @@ const CheckoutForm = ({ totalClasses, price }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+
 
     useEffect(() => {
         if (price > 0) {
@@ -76,18 +79,17 @@ const CheckoutForm = ({ totalClasses, price }) => {
             const payment = {
                 email: user?.email,
                 price,
-                classItems: totalClasses.map(item => item._id),
-                selectClassItems: totalClasses.map(item => item.selectClassId),
-                className: totalClasses.map(item => item.name),
-                classImage: totalClasses.map(item => item.image),
-                instructorsName: totalClasses.map(item => item.instructorName),
-                availableSeat: totalClasses.map(item => item.seat)
+                transactionId: paymentIntent.id,
+                image,
+                name,
+                instructorName,
+                seat
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.result.insertedId) {
-                        // display confirm
+                        // later use sweet alert
                     }
                 })
 
@@ -114,7 +116,8 @@ const CheckoutForm = ({ totalClasses, price }) => {
                         },
                     }}
                 />
-                <button className="btn btn-warning btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className="btn btn-warning btn-sm mt-4" type="submit"
+                    disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

@@ -56,7 +56,10 @@ const SelectedClass = () => {
                                     <button onClick={() => handleDelete(single)} className="btn btn-active btn-ghost">Delete</button>
                                 </td>
                                 <td>
-                                    <Link to='pay'><button className="btn btn-active btn-ghost">Pay</button></Link>
+                                    {/* <Link to='pay'><button className="btn btn-active btn-ghost">Pay</button>
+                                    </Link> */}
+                                    <Link to={`/dashboard/selectedclass/pay/${single._id}`}><button className="btn btn-active btn-ghost">Pay</button>
+                                    </Link>
 
                                 </td>
                             </tr>)
