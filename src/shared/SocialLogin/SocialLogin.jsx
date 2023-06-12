@@ -20,7 +20,7 @@ const SocialLogin = () => {
 
                 const userInformation = { name: loggedUser.displayName, email: loggedUser.email }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://assignment-twelve-server-side-six.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

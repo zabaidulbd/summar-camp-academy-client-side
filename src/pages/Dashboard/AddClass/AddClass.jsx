@@ -17,7 +17,7 @@ const AddClass = () => {
         const price = form.price.value;
         const classDetails = { name, image, instructorName, email, seat, price }
 
-        fetch('http://localhost:5000/classes', {
+        fetch('https://assignment-twelve-server-side-six.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -15,7 +15,7 @@ const AllClasses = () => {
         if (user && user.email) {
             const { _id, image, name, instructorName, seat, price } = selectClass
             const savedClass = { selectClassId: _id, image, name, instructorName, seat, price, email: user?.email }
-            fetch('http://localhost:5000/selectedclasses', {
+            fetch('https://assignment-twelve-server-side-six.vercel.app/selectedclasses', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

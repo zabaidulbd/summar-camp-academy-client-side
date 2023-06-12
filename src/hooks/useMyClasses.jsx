@@ -10,7 +10,7 @@ const useMyClasses = () => {
     const { refetch, data: myTotalClasses = [] } = useQuery({
         queryKey: ['classes', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myClasses?email=${user?.email}`)
+            const res = await fetch(`https://assignment-twelve-server-side-six.vercel.app/myClasses?email=${user?.email}`)
             return res.json();
         },
     })

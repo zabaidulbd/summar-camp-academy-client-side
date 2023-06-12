@@ -7,7 +7,7 @@ const SelectedClass = () => {
     const [totalClasses, refetch] = useSelectedClass();
 
     const handleDelete = single => {
-        fetch(`http://localhost:5000/selectedclasses/${single._id}`, {
+        fetch(`https://assignment-twelve-server-side-six.vercel.app/selectedclasses/${single._id}`, {
             method: 'DELETE'
 
         })

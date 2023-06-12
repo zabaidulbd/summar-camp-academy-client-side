@@ -5,13 +5,13 @@ const ManageClasses = () => {
 
 
     const { data: classes = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://assignment-twelve-server-side-six.vercel.app/classes')
         return res.json();
     })
 
     const handleApprove = singleClass => {
 
-        fetch(`http://localhost:5000/classes/approve/${singleClass._id}`, {
+        fetch(`https://assignment-twelve-server-side-six.vercel.app/classes/approve/${singleClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ const ManageClasses = () => {
 
     const handleDeny = singleClass => {
 
-        fetch(`http://localhost:5000/classes/deny/${singleClass._id}`, {
+        fetch(`https://assignment-twelve-server-side-six.vercel.app/classes/deny/${singleClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
