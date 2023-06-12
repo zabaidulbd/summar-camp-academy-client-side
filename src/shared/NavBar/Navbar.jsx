@@ -32,7 +32,7 @@ const Navbar = () => {
                 </div>
                 <div>
                     <span className="text-xl font-bold text-white"><ActiveLink to={'/allclasses'}>Classes</ActiveLink></span> </div>
-                <div><h1 className="text-7xl font-bold text-slate-900 ms-10">Sports Academy</h1></div>
+                <div><h1 className="text-5xl font-bold text-gray-800 ms-10">Sports Academy</h1></div>
             </div>
 
             <div className="flex-none gap-2">

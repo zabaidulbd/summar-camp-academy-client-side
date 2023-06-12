@@ -12,7 +12,7 @@ const PopularInstructor = () => {
 
     return (
         <>
-            <div className="text-center text-5xl font-bold mb-14">
+            <div className="text-center text-5xl font-bold mb-14 text-gray-950">
                 <h1>Popular Instructors</h1>
             </div>
 
