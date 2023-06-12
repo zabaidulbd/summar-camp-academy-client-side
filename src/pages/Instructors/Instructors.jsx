@@ -7,6 +7,7 @@ const Instructors = () => {
 
     return (
         <>
+            <h1 className="font-bold text-5xl text-center my-10">List of Instructors in our School</h1>
             <div className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}

@@ -79,6 +79,7 @@ const CheckoutForm = ({ singleData }) => {
             const payment = {
                 email: user?.email,
                 price,
+                date: new Date(),
                 transactionId: paymentIntent.id,
                 image,
                 name,
@@ -89,7 +90,7 @@ const CheckoutForm = ({ singleData }) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.result.insertedId) {
-                        // later use sweet alert
+                        // add alert
                     }
                 })
 
