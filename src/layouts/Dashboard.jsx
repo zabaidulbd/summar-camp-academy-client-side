@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { FaUsers, FaBookOpen, FaHome, FaBook, FaMoneyCheckAlt } from "react-icons/fa";
 
 
 const Dashboard = () => {
@@ -19,15 +20,15 @@ const Dashboard = () => {
                 {
                     isAdmin ?
                         <>
-                            <h1 className="font-bold text-5xl">Admin Dash board</h1>
+                            <h1 className="font-bold text-5xl mb-10">Admin Dash board</h1>
                         </> :
                         isInstructor ?
                             <>
-                                <h1 className="font-bold text-5xl">Instructor Dashboard</h1>
+                                <h1 className="font-bold text-5xl mb-10">Instructor Dashboard</h1>
                             </> :
 
                             <>
-                                <h1 className="font-bold text-5xl">Student Dash board</h1>
+                                <h1 className="font-bold text-5xl mb-10">Student Dash board</h1>
                             </>
 
                 }
@@ -42,24 +43,24 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <>
-                                <li><Link to='manageclasses'>Manage Classes</Link> </li>
-                                <li><Link to='manageusers'>Manage Users</Link> </li>
+                                <li className="font-bold text-2xl mt-5"><Link to='manageclasses'> <FaBookOpen></FaBookOpen> Manage Classes</Link> </li>
+                                <li className="font-bold text-2xl mt-5"><Link to='manageusers'><FaUsers></FaUsers> Manage Users</Link> </li>
                             </> :
                             isInstructor ?
                                 <>
-                                    <li><Link to='addclass'>Add a class</Link> </li>
-                                    <li><Link to='myclasses'>My Classes</Link> </li>
+                                    <li className="font-bold text-2xl mt-5"><Link to='addclass'><FaBookOpen></FaBookOpen> Add a class</Link> </li>
+                                    <li className="font-bold text-2xl mt-5"><Link to='myclasses'><FaBook></FaBook> My Classes</Link> </li>
                                 </> :
 
                                 <>
-                                    <li><Link to='selectedclass'>My Selected class</Link> </li>
-                                    <li><Link to='enrolledclass'>My Enrolled class</Link> </li>
-                                    <li><Link to='paymenthistory'>Payment History</Link> </li>
+                                    <li className="font-bold text-2xl mt-5"><Link to='selectedclass'><FaBookOpen></FaBookOpen> My Selected class</Link> </li>
+                                    <li className="font-bold text-2xl mt-5"><Link to='enrolledclass'><FaBook></FaBook> My Enrolled class</Link> </li>
+                                    <li className="font-bold text-2xl mt-5"><Link to='paymenthistory'><FaMoneyCheckAlt></FaMoneyCheckAlt> Payment History</Link> </li>
                                 </>
 
                     }
                     <div className="divider"></div>
-                    <li><Link to='/'>Home</Link> </li>
+                    <li className="font-bold text-2xl mt-5"><Link to='/'><FaHome></FaHome> Home</Link> </li>
                 </ul>
 
 

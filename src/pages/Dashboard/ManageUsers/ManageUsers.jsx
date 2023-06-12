@@ -46,9 +46,7 @@ const ManageUsers = () => {
 
 
     return (
-        <div>
-            <h1>Total user : {users.length} </h1>
-
+        <>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -85,7 +83,7 @@ const ManageUsers = () => {
                 </table>
             </div>
 
-        </div>
+        </>
     );
 };
 
