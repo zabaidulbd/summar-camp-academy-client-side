@@ -2,9 +2,6 @@ import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
-import Swal from 'sweetalert2';
-
-
 
 
 const SocialLogin = () => {

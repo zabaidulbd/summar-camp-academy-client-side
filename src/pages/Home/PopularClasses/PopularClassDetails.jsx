@@ -5,9 +5,6 @@ const PopularClassDetails = ({ singleClass }) => {
 
     const { image, name, instructorName, price, seat } = singleClass;
 
-
-
-
     return (
 
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -20,7 +17,6 @@ const PopularClassDetails = ({ singleClass }) => {
                     <p className="font-semibold">Price : {price}</p>
                     <p className="font-semibold">Available Seats : {seat}</p>
                 </div>
-
             </div>
             <figure><img className="h-80 w-full" src={image} alt="Shoes" /></figure>
         </div>

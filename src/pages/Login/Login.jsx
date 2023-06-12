@@ -11,13 +11,10 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-
-
 
     const onSubmit = data => {
 

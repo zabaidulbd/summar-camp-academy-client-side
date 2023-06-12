@@ -6,12 +6,8 @@ import { FaUsers, FaBookOpen, FaHome, FaBook, FaMoneyCheckAlt } from "react-icon
 
 const Dashboard = () => {
 
-    // const isAdmin = true;
     const [isAdmin] = useAdmin();
-    // const isInstructor = false;
     const [isInstructor] = useInstructor();
-
-
 
     return (
         <div className="drawer drawer-mobile lg:drawer-open">

@@ -49,10 +49,6 @@ const MyClasses = () => {
                                     <button className="btn btn-neutral btn-xs">feedback</button>
                                 </td>
                             </tr>)
-
-
-
-
                         }
 
                     </tbody>

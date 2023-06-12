@@ -90,13 +90,10 @@ const CheckoutForm = ({ singleData }) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.result.insertedId) {
-                        // add alert
+                        // add alert after successful payment
                     }
                 })
-
         }
-
-
     }
     return (
         <>

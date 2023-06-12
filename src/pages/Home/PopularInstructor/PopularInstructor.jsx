@@ -7,9 +7,6 @@ const PopularInstructor = () => {
     const [user] = useUser();
     const popular = user.filter(singleUser => singleUser.role === 'instructor');
 
-
-
-
     return (
         <>
             <div className="text-center mb-10">

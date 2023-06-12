@@ -8,6 +8,7 @@ import ActiveLink from "../../ActiveLink/ActiveLink";
 const Navbar = () => {
 
     const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light');
+
     useEffect(() => {
         localStorage.setItem('theme', theme);
         const localTheme = localStorage.getItem('theme');
