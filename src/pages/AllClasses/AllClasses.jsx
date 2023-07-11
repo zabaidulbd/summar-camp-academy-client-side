@@ -2,6 +2,9 @@ import { useContext } from "react";
 import useClasses from "../../hooks/useClasses";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 
 const AllClasses = () => {
@@ -36,11 +39,19 @@ const AllClasses = () => {
 
         }
     }
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh(); // Refresh AOS when the component mounts or updates
+    }, []);
+
 
     return (
         <>
-            <h1 className="font-bold text-5xl text-center my-10">List of Classes in our School</h1>
-            <div className="overflow-x-auto p-14">
+            <h1 data-aos="fade-up" className="font-bold text-5xl text-center my-10">List of Classes in our School</h1>
+            <div data-aos="fade-down" className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
                     <thead>

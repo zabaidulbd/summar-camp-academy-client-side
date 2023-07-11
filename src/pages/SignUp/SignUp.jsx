@@ -5,6 +5,9 @@ import SocialLogin from "../../shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const SignUp = () => {
 
@@ -50,10 +53,17 @@ const SignUp = () => {
             })
             .catch(error => console.log(error))
     };
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh(); // Refresh AOS when the component mounts or updates
+    }, []);
 
     return (
         <>
-            <div className="hero min-h-screen bg-base-200 p-5">
+            <div data-aos="fade-up" className="hero min-h-screen bg-base-200 p-5">
                 <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                     <h2 className="font-bold text-3xl text-center mt-5"> Please Sing Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">

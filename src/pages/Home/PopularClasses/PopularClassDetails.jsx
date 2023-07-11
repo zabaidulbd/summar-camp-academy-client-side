@@ -1,13 +1,23 @@
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const PopularClassDetails = ({ singleClass }) => {
 
 
     const { image, name, instructorName, price, seat } = singleClass;
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh(); // Refresh AOS when the component mounts or updates
+    }, []);
+
     return (
 
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div data-aos="fade-left" className="card w-96 bg-base-100 shadow-xl">
             <div className="card-body">
                 <h2 className="card-title ms-5">Class Name : {name}
                     <div className="badge badge-secondary">popular</div>

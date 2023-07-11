@@ -5,6 +5,9 @@ import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 const Login = () => {
@@ -34,14 +37,20 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
     };
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh(); // Refresh AOS when the component mounts or updates
+    }, []);
+
 
 
 
     return (
         <>
-
-            <div className="hero min-h-screen bg-base-200">
-
+            <div data-aos="fade-up" className="hero min-h-screen bg-base-200">
                 <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">

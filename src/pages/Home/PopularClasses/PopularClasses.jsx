@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import PopularClassDetails from "./PopularClassDetails";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const PopularClasses = () => {
@@ -13,10 +15,18 @@ const PopularClasses = () => {
             });
     }, [])
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh(); // Refresh AOS when the component mounts or updates
+    }, []);
+
     return (
 
         <>
-            <div className="text-center mb-10">
+            <div data-aos="fade-right" className="text-center mb-10">
                 <h1 className="font-bold text-5xl text-gray-950 mb-5">Popular Classes</h1>
                 <h2 className="font-bold text-3xl text-gray-800">These our popular classes, which take the expert instructors <br /> if you want you can develop your skills.</h2>
             </div>
