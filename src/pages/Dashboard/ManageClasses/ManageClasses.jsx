@@ -46,11 +46,11 @@ const ManageClasses = () => {
             <div>
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <form method="dialog" className="modal-box">
-                        <h3 className="font-bold text-lg mb-2">Reason for approved or denied!</h3>
+                        <h3 className="font-bold text-lg mb-3">Reason for approved or denied!</h3>
                         <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <div className="modal-action">
-                            <button className="btn btn-neutral">Send Feed back</button>
-                            <button className="btn btn-neutral">Close</button>
+                            <button className="btn btn-active btn-error text-white hover:bg-red-600">Send Feed back</button>
+                            <button className="btn btn-active btn-error text-white hover:bg-red-600">Close</button>
                         </div>
                     </form>
                 </dialog>
@@ -58,8 +58,8 @@ const ManageClasses = () => {
 
             <div className="overflow-x-auto">
                 <table className="table">
-                    <thead>
-                        <tr>
+                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
+                        <tr className="text-base">
                             <th>Classes Image</th>
                             <th>Classes Name</th>
                             <th>Instructor Name</th>
@@ -71,7 +71,7 @@ const ManageClasses = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             classes.map(singleClass => <tr key={singleClass._id}>
 
@@ -89,17 +89,17 @@ const ManageClasses = () => {
                                 <td>{singleClass.price}</td>
                                 <td>
                                     {
-                                        singleClass.status === 'approve' ? 'approve' : <button onClick={() => handleApprove(singleClass)} className="btn btn-active btn-ghost btn-sm">Approve</button>
+                                        singleClass.status === 'approve' ? 'approve' : <button onClick={() => handleApprove(singleClass)} className="btn btn-active btn-error text-white hover:bg-red-600 btn-sm">Approve</button>
                                     }
 
                                 </td>
                                 <td>
                                     {
-                                        singleClass.status === 'deny' ? 'deny' : <button onClick={() => handleDeny(singleClass)} className="btn btn-active btn-ghost btn-sm">Deny</button>
+                                        singleClass.status === 'deny' ? 'deny' : <button onClick={() => handleDeny(singleClass)} className="btn btn-active btn-error text-white hover:bg-red-600 btn-sm">Deny</button>
                                     }
                                 </td>
                                 <td>
-                                    <button className="btn btn-active btn-ghost btn-sm" onClick={() => window.my_modal_5.showModal()}>Send Feedback</button>
+                                    <button className="btn btn-active btn-error text-white hover:bg-red-600 btn-sm" onClick={() => window.my_modal_5.showModal()}>Feedback</button>
                                 </td>
 
                             </tr>)

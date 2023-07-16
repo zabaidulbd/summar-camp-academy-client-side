@@ -73,7 +73,7 @@ const Login = () => {
                         </div>
                         <span className="text-center"><SocialLogin></SocialLogin></span>
                         <div className="form-control">
-                            <input className="btn btn-error" type="submit" value="Sign In" />
+                            <input className="btn btn-error hover:bg-red-500" type="submit" value="Sign In" />
                         </div>
                     </form>
 

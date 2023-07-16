@@ -76,9 +76,9 @@ const Navbar = () => {
                                 </div>
                             </label>
 
-                            <button onClick={handleLogOut} className="btn btn-error me-10"><span className="text-white">Log-Out</span></button>
+                            <button onClick={handleLogOut} className="btn btn-error me-10"><span className="text-white ">Log-Out</span></button>
                         </> :
-                        <Link to={'/login'}><button className="btn btn-error me-10"><span className="text-white">Login</span></button></Link>
+                        <Link to={'/login'}><button className="btn btn-error me-10 hover:bg-red-600"><span className="text-white">Login</span></button></Link>
                 }
 
             </div>

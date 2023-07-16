@@ -65,7 +65,7 @@ const SignUp = () => {
         <>
             <div data-aos="fade-up" className="hero min-h-screen bg-base-200 p-5">
                 <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-                    <h2 className="font-bold text-3xl text-center mt-5"> Please Sing Up</h2>
+                    <h2 className="font-bold text-3xl text-center mt-8"> Please Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -109,8 +109,8 @@ const SignUp = () => {
                             </label>
                         </div>
                         <span className="text-center"><SocialLogin></SocialLogin></span>
-                        <div className="form-control mt-6">
-                            <input className="btn btn-secondary" type="submit" value="Sign Up" />
+                        <div className="form-control">
+                            <input className="btn btn-error hover:bg-red-500" type="submit" value="Sign Up" />
                         </div>
                     </form>
 

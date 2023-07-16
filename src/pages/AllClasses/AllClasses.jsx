@@ -50,12 +50,12 @@ const AllClasses = () => {
 
     return (
         <>
-            <h1 data-aos="fade-up" className="font-bold text-5xl text-center my-10">List of Classes in our School</h1>
+            <h1 data-aos="fade-up" className="font-bold text-5xl text-center mb-5 mt-20">List of Classes in our Academy</h1>
             <div data-aos="fade-down" className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr>
+                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
+                        <tr className="text-lg">
                             <th>Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
@@ -64,13 +64,13 @@ const AllClasses = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             approve.map(singleData => <tr key={singleData._id}>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
+                                            <div className="mask mask-squircle w-14 h-12">
                                                 <img src={singleData.image} alt="Instructor's image" />
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@ const AllClasses = () => {
                                 <td>{singleData.instructorName}</td>
                                 <td>{singleData.seat}</td>
                                 <td>{singleData.price}</td>
-                                <td><button onClick={() => handleSelectClass(singleData)} className="btn btn-active btn-ghost">Select</button></td>
+                                <td><button onClick={() => handleSelectClass(singleData)} className="btn btn-active btn-error text-white hover:bg-red-600">Select</button></td>
                             </tr>)
                         }
                     </tbody>

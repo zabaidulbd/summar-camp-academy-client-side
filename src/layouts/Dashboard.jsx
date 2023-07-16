@@ -16,15 +16,15 @@ const Dashboard = () => {
                 {
                     isAdmin ?
                         <>
-                            <h1 className="font-bold text-5xl mb-10">Admin Dash board</h1>
+                            <h1 className="font-bold text-5xl mb-10 mt-5">Admin Dash board</h1>
                         </> :
                         isInstructor ?
                             <>
-                                <h1 className="font-bold text-5xl mb-10">Instructor Dashboard</h1>
+                                <h1 className="font-bold text-5xl mb-10 mt-5">Instructor Dashboard</h1>
                             </> :
 
                             <>
-                                <h1 className="font-bold text-5xl mb-10">Student Dash board</h1>
+                                <h1 className="font-bold text-5xl mb-10 mt-5">Student Dash board</h1>
                             </>
 
                 }
