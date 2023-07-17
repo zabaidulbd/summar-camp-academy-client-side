@@ -10,9 +10,10 @@ const Gallery = () => {
     return (
         <div className="my-20">
             <div data-aos="fade-up" className="text-center mb-20">
-                <h1 className="font-bold text-5xl text-gray-950 mb-5">Kids Friendly Sports Zone</h1>
-                <h2 className="font-bold text-3xl text-gray-800">Look at the following list of sports for kids <br /> to maximise their potential and help them lead a healthy lifestyle.</h2>
+                <h1 className="font-bold text-5xl text-gray-900 mb-5 underline">Kids Friendly Sports Zone</h1>
+                <h2 className="font-bold text-3xl text-gray-800">Explore the following list of sports for kids<br />to maximize their potential and help them lead a healthy lifestyle.</h2>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 ms-5 me-5">
 
                 <div className="bg-gray-100 p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
