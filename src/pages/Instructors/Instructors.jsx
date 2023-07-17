@@ -17,13 +17,14 @@ const Instructors = () => {
     }, []);
 
     return (
-        <>
-            <h1 data-aos="fade-up" className="font-bold text-5xl text-center mb-5 mt-20">List of Instructors in our Academy</h1>
+        <div className="bg-red-200">
+            <h1 data-aos="fade-up" className="font-bold text-5xl text-center pb-5 pt-20">List of Instructors in our Academy</h1>
             <div data-aos="fade-down" className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
                     <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
                         <tr className="text-lg">
+                            <th></th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -33,6 +34,7 @@ const Instructors = () => {
                     <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             instructor.map(singleInstructor => <tr key={singleInstructor._id}>
+                                <td></td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
@@ -53,7 +55,7 @@ const Instructors = () => {
                 </table>
             </div>
 
-        </>
+        </div>
     );
 };
 

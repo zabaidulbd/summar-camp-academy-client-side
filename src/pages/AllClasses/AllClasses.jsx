@@ -49,24 +49,27 @@ const AllClasses = () => {
 
 
     return (
-        <>
-            <h1 data-aos="fade-up" className="font-bold text-5xl text-center mb-5 mt-20">List of Classes in our Academy</h1>
+        <div className="bg-red-200">
+            <h1 data-aos="fade-up" className="font-bold text-5xl text-center pb-5 pt-20">List of Classes in our Academy</h1>
             <div data-aos="fade-down" className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
                     <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
                         <tr className="text-lg">
+                            <th></th>
                             <th>Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
                             <th>Available Seats</th>
                             <th>Price</th>
                             <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             approve.map(singleData => <tr key={singleData._id}>
+                                <td></td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
@@ -79,7 +82,7 @@ const AllClasses = () => {
                                 <td>{singleData.name}</td>
                                 <td>{singleData.instructorName}</td>
                                 <td>{singleData.seat}</td>
-                                <td>{singleData.price}</td>
+                                <td>${singleData.price}</td>
                                 <td><button onClick={() => handleSelectClass(singleData)} className="btn btn-active btn-error text-white hover:bg-red-600">Select</button></td>
                             </tr>)
                         }
@@ -87,7 +90,7 @@ const AllClasses = () => {
 
                 </table>
             </div>
-        </>
+        </div>
     );
 };
 

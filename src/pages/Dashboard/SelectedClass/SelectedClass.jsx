@@ -26,8 +26,8 @@ const SelectedClass = () => {
             <div className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr>
+                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
+                        <tr className="text-base">
                             <th>Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
@@ -36,7 +36,7 @@ const SelectedClass = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             totalClasses.map(single => <tr key={single._id}>
                                 <td>
@@ -53,10 +53,10 @@ const SelectedClass = () => {
                                 <td>{single.seat}</td>
                                 <td>{single.price}</td>
                                 <td>
-                                    <button onClick={() => handleDelete(single)} className="btn btn-active btn-ghost">Delete</button>
+                                    <button onClick={() => handleDelete(single)} className="btn btn-active btn-error text-white hover:bg-red-600">Delete</button>
                                 </td>
                                 <td>
-                                    <Link to={`/dashboard/selectedclass/pay/${single._id}`}><button className="btn btn-active btn-ghost">Pay</button>
+                                    <Link to={`/dashboard/selectedclass/pay/${single._id}`}><button className="btn btn-active btn-error text-white hover:bg-red-600">Pay</button>
                                     </Link>
 
                                 </td>

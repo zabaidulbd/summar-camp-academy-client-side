@@ -11,8 +11,8 @@ const EnrolledClass = () => {
             <div className="overflow-x-auto p-14">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr>
+                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
+                        <tr className="text-base">
                             <th>Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
@@ -20,7 +20,7 @@ const EnrolledClass = () => {
                             <th>Price</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             enrolledClasses.map(single => <tr key={single._id}>
                                 <td>

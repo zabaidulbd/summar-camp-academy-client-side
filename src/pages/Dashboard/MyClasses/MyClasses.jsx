@@ -11,8 +11,8 @@ const MyClasses = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr>
+                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
+                        <tr className="text-base">
                             <th>Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
@@ -23,7 +23,7 @@ const MyClasses = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-red-200 text-gray-950 text-base">
                         {
                             myTotalClasses.map(uniqueClass => <tr key={uniqueClass._id}>
                                 <td>
@@ -46,7 +46,7 @@ const MyClasses = () => {
 
                                 </td>
                                 <td>
-                                    <button className="btn btn-neutral btn-xs">feedback</button>
+                                    <button className="btn btn-error btn-xs hover:bg-red-600">feedback</button>
                                 </td>
                             </tr>)
                         }
