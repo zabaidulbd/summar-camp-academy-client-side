@@ -15,7 +15,7 @@ const PopularInstructorDetails = ({ singlePopular }) => {
 
     return (
 
-        <div data-aos="fade-down" className="card w-100 bg-base-200 shadow-2xl hover:shadow-xl hover:bg-gray-200 transition-all duration-300">
+        <div data-aos="fade-down" className="card w-100 bg-base-200 shadow-2xl hover:shadow-xl hover:bg-white transition-all duration-300">
             <figure><img src={image} alt="instructor" /></figure>
             <div className="card-body">
                 <h2 className="card-title">

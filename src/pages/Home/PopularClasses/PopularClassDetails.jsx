@@ -16,7 +16,7 @@ const PopularClassDetails = ({ singleClass }) => {
     }, []);
 
     return (
-        <div data-aos="fade-left" className="card w-100 bg-base-200 shadow-xl hover:shadow-2xl hover:bg-gray-300 transition-all duration-300">
+        <div data-aos="fade-left" className="card w-100 bg-base-200 shadow-xl hover:shadow-2xl hover:bg-white transition-all duration-300">
             <figure className="px-10 pt-10">
                 <img className="h-80 w-full rounded-t-lg" src={image} alt="Shoes" />
             </figure>
