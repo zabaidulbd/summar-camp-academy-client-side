@@ -65,12 +65,12 @@ const SignUp = () => {
 
     return (
         <>
-            <div data-aos="fade-up" className="hero min-h-screen bg-base-200 p-5">
+            <div className="hero min-h-screen bg-base-200 p-5">
                 <div className="flex flex-col md:flex-row items-center justify-evenly">
                     <div className="max-w-full md:mr-10 mb-6 md:mb-0">
                         <Lottie animationData={groovyWalkAnimation} loop={true} />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                    <div data-aos="fade-up" className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                         <h2 className="font-bold text-3xl text-center mt-8">Please Sign Up</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">

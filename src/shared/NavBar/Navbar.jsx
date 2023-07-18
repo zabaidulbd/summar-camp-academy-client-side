@@ -52,7 +52,6 @@ const Navbar = () => {
                     </label>
                 </div>
                 <div>
-
                     <p className="text-xl font-bold text-white">
                         <ActiveLink to={'/'}>Home</ActiveLink>
                     </p>
