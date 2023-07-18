@@ -8,6 +8,8 @@ import Swal from "sweetalert2";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "../../../public/lottie-2/animation_lk7uhvxv.json";
 
 const SignUp = () => {
 
@@ -64,58 +66,55 @@ const SignUp = () => {
     return (
         <>
             <div data-aos="fade-up" className="hero min-h-screen bg-base-200 p-5">
-                <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
-                    <h2 className="font-bold text-3xl text-center mt-8"> Please Sign Up</h2>
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text"  {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
-                            {errors.email && <span className="text-red-600">Email is required</span>}
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password"  {...register("password", {
-                                required: true,
-                                minLength: 6,
-                                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                            })} placeholder="password" className="input input-bordered" />
-                            {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
-                            {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
-                            {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                <div className="flex flex-col md:flex-row items-center justify-evenly">
+                    <div className="max-w-full md:mr-10 mb-6 md:mb-0">
+                        <Lottie animationData={groovyWalkAnimation} loop={true} />
+                    </div>
+                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                        <h2 className="font-bold text-3xl text-center mt-8">Please Sign Up</h2>
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Confirm Password</span>
+                                    <span className="label-text">Name</span>
                                 </label>
-                                <input type="password"  {...register("confirmpassword")} name="confirmpassword" placeholder="confirm password" className="input input-bordered" />
+                                <input type="text"  {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
                             </div>
-                            <label className="label">
-                                <p><small>Already have an account ? <Link to="/login"><span className="font-bold">Login</span></Link></small></p>
-                            </label>
-                        </div>
-                        <span className="text-center"><SocialLogin></SocialLogin></span>
-                        <div className="form-control">
-                            <input className="btn btn-error hover:bg-red-500" type="submit" value="Sign Up" />
-                        </div>
-                    </form>
-
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className="text-red-600">Email is required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password"  {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                })} placeholder="password" className="input input-bordered" />
+                                {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                                <label className="label">
+                                    <p><small>Already have an account ? <Link to="/login"><span className="font-bold">Login</span></Link></small></p>
+                                </label>
+                            </div>
+                            <span className="text-center"><SocialLogin></SocialLogin></span>
+                            <div className="form-control">
+                                <input className="btn btn-error hover:bg-red-500" type="submit" value="Sign Up" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             </div>
         </>
     );
