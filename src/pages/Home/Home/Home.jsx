@@ -9,9 +9,9 @@ const Home = () => {
     return (
         <div>
             <TopSlider></TopSlider>
+            <Gallery></Gallery>
             <PopularClasses></PopularClasses>
             <PopularInstructor></PopularInstructor>
-            <Gallery></Gallery>
         </div>
     );
 };
