@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <footer data-aos="fade-up" className="footer px-10 py-4 border-t bg-pink-400 text-base-content border-base-300">
+        <footer className="footer px-10 py-10 border-t bg-pink-400 text-base-content border-base-300">
             <div className="items-center grid-flow-col">
                 <img className="w-36 rounded-full" src="https://img.freepik.com/free-vector/gradient-alligator-logo-design_23-2149921534.jpg?w=740&t=st=1686131201~exp=1686131801~hmac=3550dbdfa34090a0ec741fac4802ca1ddf43c1d8b0ffa0cb6797b3672f478e1c" alt="" />
                 <div>
@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
 
             <div>
-                <h2 className="font-bold text-3xl text-white">Contact</h2>
+                <h2 className="font-bold text-3xl text-white mb-1">Contact Us</h2>
                 <p className="font-bold">Mobile: 0198-3569825</p>
                 <p className="font-bold">email: sports@gmail.com</p>
             </div>

@@ -1,8 +1,5 @@
-import { useEffect } from "react";
 import useUser from "../../../hooks/useUser";
 import PopularInstructorDetails from "./PopularInstructorDetails";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 
 const PopularInstructor = () => {
@@ -10,17 +7,9 @@ const PopularInstructor = () => {
     const [user] = useUser();
     const popular = user.filter(singleUser => singleUser.role === 'instructor');
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-        AOS.refresh(); // Refresh AOS when the component mounts or updates
-    }, []);
-
     return (
-        <>
-            <div data-aos="fade-up" className="text-center mb-10">
+        <div className="mb-10">
+            <div className="text-center mb-10">
                 <h1 className="font-bold text-5xl text-gray-900 mb-5 underline">Popular Instructors</h1>
                 <h2 className="font-bold text-3xl text-gray-800">We have expert teachers in different fields. They will help you build expertise in numerous sectors.</h2>
             </div>
@@ -32,7 +21,7 @@ const PopularInstructor = () => {
                 }
             </div>
 
-        </>
+        </div>
     );
 };
 
