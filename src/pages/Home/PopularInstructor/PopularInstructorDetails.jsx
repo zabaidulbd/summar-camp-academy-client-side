@@ -1,8 +1,19 @@
 import img from '../../../assets/popular-instructor/bg_img.jfif'
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { useEffect } from 'react';
 
 const PopularInstructorDetails = ({ singlePopular }) => {
 
     const { name, image } = singlePopular;
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+        AOS.refresh();
+    }, []);
 
     return (
         <>

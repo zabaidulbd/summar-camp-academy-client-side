@@ -12,7 +12,7 @@ import img3 from '../../../assets/top-slider/top-3.png'
 const TopSlider = () => {
     const AutoplaySlider = withAutoplay(AwesomeSlider);
     return (
-        <div className='my-20'>
+        <div className='mb-20'>
             <AutoplaySlider
                 play={true}
                 cancelOnInteraction={false}
