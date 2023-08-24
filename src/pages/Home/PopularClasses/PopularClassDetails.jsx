@@ -3,8 +3,6 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 const PopularClassDetails = ({ singleClass }) => {
-
-
     const { image, name, instructorName, price, seat } = singleClass;
 
     useEffect(() => {
