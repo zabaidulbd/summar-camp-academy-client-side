@@ -2,9 +2,7 @@ import { useContext } from "react";
 import useClasses from "../../hooks/useClasses";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
+import AllClassesDetails from "./AllClassesDetails";
 
 
 const AllClasses = () => {
@@ -39,57 +37,22 @@ const AllClasses = () => {
 
         }
     }
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-        AOS.refresh(); // Refresh AOS when the component mounts or updates
-    }, []);
 
 
     return (
-        <div className="bg-red-200">
-            <h1 data-aos="fade-up" className="font-bold text-5xl text-center pb-5 pt-20">List of Classes in our Academy</h1>
-            <div data-aos="fade-down" className="overflow-x-auto p-14">
-                <table className="table">
-                    {/* head */}
-                    <thead className="bg-red-400 text-white fw-semibold hover:bg-red-600">
-                        <tr className="text-lg">
-                            <th></th>
-                            <th>Image</th>
-                            <th>Class Name</th>
-                            <th>Instructor Name</th>
-                            <th>Available Seats</th>
-                            <th>Price</th>
-                            <th>Action</th>
-
-                        </tr>
-                    </thead>
-                    <tbody className="bg-red-200 text-gray-950 text-base">
-                        {
-                            approve.map(singleData => <tr key={singleData._id}>
-                                <td></td>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-14 h-12">
-                                                <img src={singleData.image} alt="Instructor's image" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{singleData.name}</td>
-                                <td>{singleData.instructorName}</td>
-                                <td>{singleData.seat}</td>
-                                <td>${singleData.price}</td>
-                                <td><button onClick={() => handleSelectClass(singleData)} className="btn btn-active btn-error text-white hover:bg-red-600">Select</button></td>
-                            </tr>)
-                        }
-                    </tbody>
-
-                </table>
+        <div className="my-20">
+            <div className="text-center mb-20 mx-20">
+                <h1 className="font-bold text-5xl text-gray-900 mb-8 underline">Explore Our Classes</h1>
+                <h2 className="font-bold text-3xl text-gray-800">Discover a World of Learning with Our Diverse Courses</h2>
             </div>
+
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
+                {
+                    approve.map(uniqueClass => <AllClassesDetails key={uniqueClass._id} uniqueClass={uniqueClass} handleSelectClass={handleSelectClass} ></AllClassesDetails>)
+                }
+            </div>
+
         </div>
     );
 };

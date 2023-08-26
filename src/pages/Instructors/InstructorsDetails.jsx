@@ -30,7 +30,7 @@ const InstructorsDetails = ({ singleInstructor }) => {
         >
             <div
                 className="bg-white shadow-md rounded-lg overflow-hidden w-100"
-                data-aos="fade-left"
+                data-aos="zoom-in"
             >
                 <div className="p-4 pt-10 rotate-card">
                     <img
