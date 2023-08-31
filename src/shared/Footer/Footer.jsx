@@ -14,7 +14,7 @@ const Footer = () => {
 
             <div>
                 <h2 className="font-bold text-3xl text-white mb-1">Contact Us</h2>
-                <p className="font-bold">Mobile: 0198-3569825</p>
+                <p className="font-bold">Mobile: 0998-3569825</p>
                 <p className="font-bold">email: sports@gmail.com</p>
             </div>
 
@@ -26,7 +26,7 @@ const Footer = () => {
                         <span className="label-text">Enter your email address</span>
                     </label>
                     <div className="relative">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
+                        <input type="text" placeholder="example@example.com" className="input input-bordered w-full pr-16" />
                         <button className="btn btn-error absolute top-0 right-0 rounded-l-none">Subscribe</button>
                     </div>
                 </div>
