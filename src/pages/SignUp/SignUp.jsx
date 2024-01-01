@@ -60,7 +60,7 @@ const SignUp = () => {
             duration: 1000,
             once: true,
         });
-        AOS.refresh(); // Refresh AOS when the component mounts or updates
+        AOS.refresh();
     }, []);
 
     return (
