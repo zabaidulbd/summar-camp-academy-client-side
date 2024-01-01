@@ -64,7 +64,7 @@ const FrequentlyAskedQuestion = () => {
                         ))}
                     </div>
                     <div className="ps-2">
-                        <img className="w-[600px]" src={faqimg} alt="" />
+                        <img data-aos="fade-down" className="w-[7000px] pt-14 rounded-xl" src={faqimg} alt="" />
                     </div>
                 </div>
             </div>
